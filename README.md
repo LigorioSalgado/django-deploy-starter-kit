@@ -52,17 +52,25 @@ $ pip freeze > requeriments.txt
 ## Creando Instancia
 
 * En el dashboard de AWS seleccionar la opcion EC2 en la pestaña de de "services"
+![Alt text](/media/cap1.png?raw=true "Optional Title")
 * Ubicados "EC2 Dashboard" seleciona "Launch Instance"
+![Alt text](/media/cap2.png?raw=true "Optional Title")
 * Selecciona la distribucion del servidor <b>NOTA:</b> Para este ejemplo utilizaremos "Ubuntu server 16.04 LTS"
 * Seleccionamos la opcion "t2.micro" y damos click en "Review and Launch"
+![Alt text](/media/cap3.png?raw=true "Optional Title")
 * En la ventana de "Review Instance Launch" dar click en "Launch"
+![Alt text](/media/cap4.png?raw=true "Optional Title")
 * Aparece un dialogo para seleccionar o crear  "Key pair", escogemos la opcion de "Create a new key pair" y agregamos un nombre, por ultimo damos click  en "Download Key Pair" <b>NOTA:</b> No perder el  archivo "nombre.pem" ya que es la unica forma de entrar al servidor
+![Alt text](/media/cap5.png?raw=true "Optional Title")
 * Por ultimo damos click en "launch instance"
 * En la pantalla de "Launch Status" selecionamos la opcion  de "View instance"
+![Alt text](/media/cap6.png?raw=true "Optional Title")
 * Finalmente seremos enviados de nuevo al dashboard y se vera corriendo nuestra nueva instancia
+![Alt text](/media/cap7.png?raw=true "Optional Title")
 
 ## Conectando y configurando
-* En el dashboard de intancia selecionamos la opcion de "Connect" aparacera un idlogo con algunas instrucciones:
+* En el dashboard de la intancia selecionamos la opcion de "Connect" aparacera un dialogo con algunas instrucciones:
+![Alt text](/media/cap8.png?raw=true "Optional Title")
 	* Mac y Linux:
 		* Copiar el "archivo.pem" en la carpeta ".ssh" que se encuentra en su directorio raiz
 		* cambiar los permisos del archivo con
@@ -73,11 +81,14 @@ $ pip freeze > requeriments.txt
         ```sh
         $ ssh -i "prueba.pem" ubuntu@ec2-35-160-39-170.us-west-2.compute.amazonaws.com
         ```
+        ![Alt text](/media/cap9.png?raw=true "Optional Title")
     * Windows:
     	* Seguir el siguiente tutorial para usar Putty -> https://www.youtube.com/watch?v=0PtBREh74r4
 
 * Al entrar no pide crear un fingerprint escribimos "yes"
+![Alt text](/media/cap10.png?raw=true "Optional Title")
 * Sabremos si estamos conectados si aparece una pantalla como sigue:
+* ![Alt text](/media/cap11.png?raw=true "Optional Title")
 
 ### Configuración inical de nuestra instancia
 
@@ -96,7 +107,7 @@ $ sudo apt-get upgrade
     LC_ALL="en_US.utf8"
 	LANGUAGE="en_US.utf8"
     ```
-    * Guardamos el archivo yu reiniciamos la instancia con:
+    * Guardamos el archivo y reiniciamos la instancia con:
     ```sh
     sudo reboot
     ```
@@ -110,7 +121,7 @@ $ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key
 $ sudo apt-get update
 $ sudo apt-get install postgresql postgresql-contrib
 ```
-* Para instalar  se tiene que realizar los siguiente:
+* Para instalar nginx se tiene que realizar los siguiente:
 
 ```sh
 $ sudo apt-get install nginx
@@ -122,11 +133,17 @@ $ sudo apt-get install python-virtualenv python-pip
 ### Configuracion http
 
 * Regresamos al  dashboard  de AWS y seleccionamos "Security groups" que se encuentra en el menu izquierdo en la parte inferior 
+![Alt text](/media/cap12.png?raw=true "Optional Title")
 * Seleccionamos la opcion que diga "launch-wizard-XXXX" en la parte de "Group name"
 * Ya con la opcion señalada ,damos clic en "Actions">"Edit inbound rules"
+![Alt text](/media/cap13.png?raw=true "Optional Title")
 * Aparecera un dialogo como el siguiente, damos click en "Add rule"
-* se Crea  una nueva opción llamada "Custom TCP Rule", seleccionamos la opcion y elegimos "HTTP", damos en "Save"
+![Alt text](/media/cap14.png?raw=true "Optional Title")
+* Se crea  una nueva opción llamada "Custom TCP Rule", seleccionamos la opcion y elegimos "HTTP", damos en "Save"
+![Alt text](/media/cap15.png?raw=true "Optional Title")
 * Por ultimo volvemos "Instances" (la opcion se encuentra en el menu izquierdo en la parte superior), copiamos  el "Public DNS (IPv4)" que se encuentra en la parte inferir de nuestra pantalla  y lo pegamos en una nueva pestaña del navegador, como resultado tendremos el "Welcome to Nginx" en el navegador
+![Alt text](/media/cap16.png?raw=true "Optional Title")
+![Alt text](/media/cap17.png?raw=true "Optional Title")
 
 ## Deploy
 ### Configurando Django
@@ -224,3 +241,5 @@ $ sudo nginx -t
 $ sudo systemctl restart nginx
 ```
 *Por ultimo  nos dirigimos a <b>la-public-dns-de-la-instancia.amazonaws.com/admin/ y comprobamos que el server ya esta corriendo y ya podemos usar el admin</b>
+![Alt text](/media/cap18.png?raw=true "Optional Title")
+
