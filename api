@@ -1,0 +1,16 @@
+server {
+    listen 80;
+    server_name *.amazonaws.com; #aqui puede quedar de esta forma o poner el public dns de tu instancia
+
+
+    location /static/ {
+        alias /home/ubuntu/proyecto/ejemplo/static/;
+         #aqui va la ruta de los staticos dentro de nuestro proyecto, un comando util puede ser pwd
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/proyecto/ejemplo/ejemplo.sock;
+        #aqui va la ruta del archivo socket que se crea dentro de nuestro proyecto
+    }
+}
