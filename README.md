@@ -16,7 +16,7 @@ Pasos basicos para hacer deploy de una App en Django con EC2 y AWS
 ```sh 
 $ pip install -U python-dotenv
 ```
-* Agregamos la configuracion de <b>python-dotenv</b> en el [manage.py]() y en el [wsgi.py]()
+* Agregamos la configuracion de <b>python-dotenv</b> en el [manage.py](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/manage.py) y en el [wsgi.py](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/wsgi.py)
 ```python
 #WSGI.py
 from dotenv import load_dotenv
@@ -45,7 +45,7 @@ except:
 $ pip freeze > requeriments.txt
 ```
 
-* Configurar settings.py  y local_settings.py (click para ver ejemplo)
+* Configurar [settings.py](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/settings.py)  y [local_settings.py](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/local_settings.py) (click para ver ejemplo)
 * Crear .gitignore con  [gitignore.io](http://gitignore.io/)
 * Subimos nuestro proyecto al repositorio remoto que tenemos en github
 
@@ -214,7 +214,7 @@ $ python manage.py createsuperuser
 $ python manage.py check
 ```
 ### Gunicorn y Nginx
-* Se crea un archivo llamado [gunicorn.service]() (ver ejemplo) con el comando 
+* Se crea un archivo llamado [gunicorn.service](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/gunicorn.service) (ver ejemplo) con el comando 
 ```sh
 sudo nano /etc/systemd/system/gunicorn.service
 ````
@@ -224,7 +224,7 @@ $ sudo systemctl start gunicorn
 $ sudo systemctl enable gunicorn
 $ sudo systemctl status gunicorn
 ````
-* Una vez activado gunicorn procedemos a configurar nginx como lo muestra este [archivo]() con el siguiente comando
+* Una vez activado gunicorn procedemos a configurar nginx como lo muestra este [archivo](https://github.com/LigorioSalgado/django-deploy-starter-kit/blob/master/api) con el siguiente comando
 ```sh
 $ sudo nano /etc/nginx/sites-available/<nombre-del-proyecto>
 ```
