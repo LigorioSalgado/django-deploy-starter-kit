@@ -8,8 +8,20 @@ Pasos basicos para hacer deploy de una App en Django con EC2 y AWS
  * Terminal con ssh (Linux,MacOs) y [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (Windows) 	[Video](https://www.youtube.com/watch?v=0PtBREh74r4) para mas info con putty
 
 ## Tabla de Contenido** <br>
- - [Preparando todo](https://github.com/markdown-it/markdown-it) 
-
+ 
+  - [Preparando todo](#preparando-todo) 
+- [Creando Instancia](#creando-instancia) 
+- [Conectando y Configurando](#conectando-y-configurando) 
+	- [Configuración inical de nuestra instancia](#configuración-inical-de-nuestra-instancia)
+	- [Instalando Postgres,Nginx,vitualenv](#instalando-postgres,nginx,vitualenv)
+	- [Configuracion http](#configuracion-http)
+- [Deploy](#deploy)
+	- [Configurando Django](#configurando-django)
+	- [Creando base de datos](#creando-base-de-datos)
+	- [Probando django](#probando-django)
+	- [Gunicorn y Nginx](#gunicorn-y-nginx)
+ 
+ 
 ## Preparando todo
 
 * Instalar [python-dotenv](https://github.com/theskumar/python-dotenv) (Libreria para crear variables de entorno) 
@@ -197,6 +209,7 @@ $ exit
 ````
 ### Probando django
 * Antes de empezar debemos crear un archivo llamado <b>.env</b> al mismo nivel que el <b>manage.py</b> con lo siguiente
+<br><b>Nota:el archivo .env tambien se agrega al gitignore</b>
 ````
 DBNAME = "nombre de la BD"
 DBUSER = "nombre del usuario de la BD"
