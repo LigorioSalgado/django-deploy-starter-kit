@@ -9,7 +9,7 @@ Pasos basicos para hacer deploy de una App en Django con EC2 y AWS
 
 ## Tabla de Contenido** <br>
  
-  - [Preparando todo](#preparando-todo) 
+- [Preparando todo](#preparando-todo) 
 - [Creando Instancia](#creando-instancia) 
 - [Conectando y Configurando](#conectando-y-configurando) 
 	- [Configuración inical de nuestra instancia](#configuración-inical-de-nuestra-instancia)
