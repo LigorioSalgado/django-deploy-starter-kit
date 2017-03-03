@@ -5,10 +5,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/proyecto/ejemplo #Aqui va el directorio de nuestro django
-#En la primera parte llamamos a gunicorn desde nuestro entorno, lo conectamos con un archivo sock que se crea cuando gunicorn empiza a correr
-#la ultima parte es para iniciar gunicorn, NOTA: si nuestro proyecto se llama "ejemplo" seria ejemplo.sock y ejemplo.wsgi
-ExecStart=/home/ubuntu/proyecto/entorno/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/proyecto/ejemplo/ejemplo.sock ejemplo.wsgi:application
+WorkingDirectory=/home/ubuntu/proyecto/ejemplo
+ExecStart=/home/ubuntu/proyecto/entorno/bin/gunicorn --workers 3 ejemplo.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
